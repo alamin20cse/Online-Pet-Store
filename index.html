@@ -3,9 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Assignment-6</title>
+
+    
+    
+
+    <!-- daisyui + tailwind -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- fonte wasom cdn  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <!-- font link -->
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+
+
+    <!-- tail conf -->
+
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                clifford: '#da373d',
+                book_btn_color: '#ABEF5F',
+
+              },
+              fontFamily: {
+                lexend:"Lexend",
+                },
+            backgroundImage: {
+
+                page_bg: "url('assets/bg.jpg')"
+
+
+            },
+
+              
+            }
+          }
+        }
+      </script>
 </head>
 <body>
-    <h1>alamin</h1>
+   <header>
+
+    
+    <nav class="w-10/12 mx-auto  ">
+
+        <div class="navbar py-10 flex items-center  justify-between ">
+            <div class="flex justify-start gap-2 items-center">
+           
+                <img src="images/logo.webp" alt="">
+             <p> Peddy</p>
+            </div>
+
+            <!-- middle of nav -->
+            <div class=" hidden lg:flex">
+              <ul class="menu menu-horizontal  text-[#737373] text-[12px] ">
+                <li  class="hover:text-[#494949] hover:font-[800]"><a class="hover:bg-transparent">Home</a></li>
+                <li class="hover:text-[#494949] hover:font-[800]"><a class="hover:bg-transparent">Stop</a></li>
+                <li class="hover:text-[#494949] hover:font-[800]"><a class="hover:bg-transparent">Contact</a></li>
+               
+              </ul>
+            </div>
+
+
+            <!-- last of nav -->
+            <div class="">
+                <!--last sectionn-->
+                <div class="hidden sm:block">
+    
+                    <!-- for flex -->
+                    <div class="flex gap-2">
+                        <!-- serch -->
+                        <div class="bg-white border border-2 h-10 w-10 rounded-[20px] flex items-center justify-center ">
+
+                            <i class="fa-regular fa-user"></i>
+                        </div>
+                       
+                         
+
+                    </div>
+                </div>
+    
+    
+    
+              <!-- dropdwon -->
+              <div class="dropdown  h-10 w-10 bg-white lg:bg-transparent md:bg-transparent rounded-[20px] flex items-center justify-center ">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <ul
+                  tabindex="0"
+                  class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow right-0 top-0">
+                  <li><a>Home</a></li>
+                <li><a>Stop</a></li>
+                <li><a>Contact</a></li>
+               
+                </ul>
+              </div>
+            </div>
+          </div>
+    </nav>
+
+   </header>
 </body>
 </html>
