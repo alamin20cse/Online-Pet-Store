@@ -2,6 +2,19 @@
 
 
 
+function alartfunction(id)
+{
+    // alert(id);
+
+
+    
+    fetch(`https://openapi.programming-hero.com/api/phero-tube/category/${id}`)
+    .then((res)=>res.json())
+    .then(data=>displayvideo(data.category))
+    .catch(error=>console.log(error))
+}
+
+
 
 const allpet = () => {
     fetch('https://openapi.programming-hero.com/api/peddy/categories')
@@ -80,16 +93,22 @@ const displayallcatagory=(data)=>{
         const cardContainar=document.createElement('div');
 
         cardContainar.innerHTML=`
-        <div class="">
-  <figure class="h-[200px]">
-    <img class="w-full h-full object-cover"
+        <div class="border border-red-300 rounded-2xl">
+  <figure class="h-[200px] p-2">
+    <img class="w-full h-full object-cover rounded-2xl"
       src=${element.image} />
   </figure>
   <div class="card-body">
-    <h2 class="card-title">Shoes!</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div class="card-actions justify-end">
-      <button class="btn btn-primary">Buy Now</button>
+    <h2 class="text-[20px] font-bold">${element.pet_name}</h2>
+    <p class=""><i class="fa-solid fa-table-cells-large"></i> Breed:${element.breed}</p>
+    <p><i class="fa-solid fa-cake-candles"></i> Birdth:${element.date_of_birth}
+    <p><i class="fa-solid fa-mercury"></i> Gender:${element.gender}</p>
+    <p><i class="fa-solid fa-dollar-sign"></i> Price:${element.price}\$</p>
+    <div class="flex justify-between"> 
+      <button class="btn px-1 border border-red-300 "><i class="fa-regular fa-thumbs-up"></i></button>
+      <button class="btn px-1 border border-red-300">Adop</button>
+       <button class="btn px-1border border-red-300 ">Details</button>
+       
     </div>
   </div>
 </div>
