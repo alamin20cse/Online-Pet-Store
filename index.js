@@ -1,21 +1,8 @@
 
 
-/*
-{
-    "petId": 2,
-    "breed": "Siamese",
-    "category": "Cat",
-    "date_of_birth": "2022-09-05",
-    "price": 800,
-    "image": "https://i.ibb.co.com/3Wzz41D/pet-2.jpg",
-    "gender": "Female",
-    "pet_details": "This affectionate female Siamese cat is known for her vocal nature and love for attention. Born on September 5, 2022, she enjoys interactive play and snuggles. Fully vaccinated and priced at $800, she's the perfect fit for cat lovers who appreciate an intelligent, engaging, and sociable feline companion.",
-    "vaccinated_status": "Fully",
-    "pet_name": "Mia"
-}
 
 
-*/
+
 const allpet = () => {
     fetch('https://openapi.programming-hero.com/api/peddy/categories')
         .then((res) => res.json())
@@ -41,7 +28,7 @@ const displayallpet = (data) => {
     const buttoncontainar = document.getElementById('button-section');
    
     data.forEach(element => {
-        console.log(element);
+        // console.log(element);
         
         // Create the button
         const button = document.createElement('button');
@@ -59,3 +46,58 @@ const displayallpet = (data) => {
     });
 }
 
+// ==========================
+
+
+/*
+{
+    "petId": 1,
+    "breed": "Golden Retriever",
+    "category": "Dog",
+    "date_of_birth": "2023-01-15",
+    "price": 1200,
+    "image": "https://i.ibb.co.com/p0w744T/pet-1.jpg",
+    "gender": "Male",
+    "pet_details": "This friendly male Golden Retriever is energetic and loyal, making him a perfect companion for families. Born on January 15, 2023, he enjoys playing outdoors and is especially great with children. Fully vaccinated, he's ready to join your family and bring endless joy. Priced at $1200, he offers love, loyalty, and a lively spirit for those seeking a playful yet gentle dog.",
+    "vaccinated_status": "Fully",
+    "pet_name": "Sunny"
+}
+
+*/
+const allcatagory = () => {
+    fetch('https://openapi.programming-hero.com/api/peddy/pets')
+        .then((res) => res.json())
+        .then(data => displayallcatagory(data.pets)) 
+        .catch(error => console.log(error));
+}
+allcatagory();
+const displayallcatagory=(data)=>{
+    // console.log(data);
+    const videoContainar=document.getElementById('three-card');
+
+    data.forEach(element=>{
+        // console.log(element);
+        const cardContainar=document.createElement('div');
+
+        cardContainar.innerHTML=`
+        <div class="">
+  <figure class="h-[200px]">
+    <img class="w-full h-full object-cover"
+      src=${element.image} />
+  </figure>
+  <div class="card-body">
+    <h2 class="card-title">Shoes!</h2>
+    <p>If a dog chews shoes whose shoes does he choose?</p>
+    <div class="card-actions justify-end">
+      <button class="btn btn-primary">Buy Now</button>
+    </div>
+  </div>
+</div>
+        
+        `;
+        videoContainar.append(cardContainar);
+
+    });
+
+
+};
