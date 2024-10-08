@@ -42,8 +42,12 @@ const displayfourcatagory = (pets) => {
         
       
         messageContainer.innerHTML = `
-            <p class="text-[20px] font-bold">OPSSS BIRD IS NOT HERE</p>
-            <img src="images/error.webp" alt="No Birds" class="mt-4 h-[250px] w-auto">
+  <img src="images/error.webp" alt="No Birds" class="mt-4 h-[250px] w-auto">
+
+            <p class="text-[20px] font-bold">No Information Available</p>
+            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at 
+its layout. The point of using Lorem Ipsum is that it has a.</p>
+          
         `;
         messageContainer.classList="justify-center";
         
