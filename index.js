@@ -15,7 +15,7 @@ const displayallpet = (data) => {
         button.id = `btn-${element.category}`;
 
         button.innerHTML = `
-            <img src="${element.category_icon}" alt="${element.category}" class="icon-class mb-2 ">
+            <img src="${element.category_icon}" alt="${element.category}" class="icon-class mb-2">
             ${element.category}
         `;
 
@@ -26,10 +26,21 @@ const displayallpet = (data) => {
 };
 
 const fourCatagory = (category) => {
-    fetch(`https://openapi.programming-hero.com/api/peddy/category/${category}`)
-        .then((res) => res.json())
-        .then(data => displayfourcatagory(data.data)) 
-        .catch(error => console.log(error));
+    const SpinnerId = document.getElementById('spinner');
+    const videoContainar = document.getElementById('three-card');
+
+    // Show spinner and clear content
+    SpinnerId.classList.remove('hidden');
+    videoContainar.innerHTML = ''; 
+
+    setTimeout(() => {
+        SpinnerId.classList.add('hidden');
+        
+        fetch(`https://openapi.programming-hero.com/api/peddy/category/${category}`)
+            .then((res) => res.json())
+            .then(data => displayfourcatagory(data.data)) 
+            .catch(error => console.log(error));
+    }, 2000);
 };
 
 const displayfourcatagory = (pets) => {
@@ -39,25 +50,17 @@ const displayfourcatagory = (pets) => {
     if (pets.length === 0) {
         const messageContainer = document.createElement('div');
         messageContainer.classList = "flex flex-col items-center justify-center h-full";
-        
-      
         messageContainer.innerHTML = `
-  <img src="images/error.webp" alt="No Birds" class="mt-4 h-[250px] w-auto">
-
+            <img src="images/error.webp" alt="No Birds" class="mt-4 h-[250px] w-auto">
             <p class="text-[20px] font-bold">No Information Available</p>
             <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at 
-its layout. The point of using Lorem Ipsum is that it has a.</p>
-          
-        `;
-        messageContainer.classList="justify-center";
-        
+its layout. The point of using Lorem Ipsum is that it has a.</p>`;
         videoContainar.append(messageContainer);
         return; 
     }
 
     pets.forEach(element => {
         const cardContainar = document.createElement('div');
-
         cardContainar.innerHTML = `
             <div class="border border-red-300 rounded-2xl">
                 <figure class="p-2">
@@ -79,25 +82,35 @@ its layout. The point of using Lorem Ipsum is that it has a.</p>
                 </div>
             </div>
         `;
-
         videoContainar.append(cardContainar);
     });
 };
 
 const allcatagory = () => {
-    fetch('https://openapi.programming-hero.com/api/peddy/pets')
-        .then((res) => res.json())
-        .then(data => displayallcatagory(data.pets)) 
-        .catch(error => console.log(error));
+    const SpinnerId = document.getElementById('spinner');
+    const videoContainar = document.getElementById('three-card');
+
+    // Show spinner and clear content
+    SpinnerId.classList.remove('hidden');
+    videoContainar.innerHTML = '';
+
+    setTimeout(() => {
+        SpinnerId.classList.add('hidden');
+        
+        fetch('https://openapi.programming-hero.com/api/peddy/pets')
+            .then((res) => res.json())
+            .then(data => displayallcatagory(data.pets)) 
+            .catch(error => console.log(error));
+    }, 2000);
 };
 allcatagory();
 
 const displayallcatagory = (data) => {
     const videoContainar = document.getElementById('three-card');
+    videoContainar.innerHTML = ''; // Clear existing content
 
     data.forEach(element => {
         const cardContainar = document.createElement('div');
-
         cardContainar.innerHTML = `
             <div class="border border-red-300 rounded-2xl">
                 <figure class="p-2">
@@ -125,15 +138,12 @@ const displayallcatagory = (data) => {
 
 const lilkadd = (pto) => {
     const photoDiv = document.getElementById('photo-id');
-  
     const img = document.createElement('img');
     img.src = pto; 
     img.classList = "h-[100px] my-2";
-   
     photoDiv.appendChild(img);
 };
 
-// Details
 const modaladd = (id) => {
     fetch(`https://openapi.programming-hero.com/api/peddy/pet/${id}`)
         .then((res) => res.json())
@@ -171,7 +181,33 @@ const displaymodal = (petData) => {
     `;
 
     modal.innerHTML = modalContent;
-
-   
     modal.showModal();
+};
+
+
+
+
+
+
+
+
+const adpofunction = () => {
+    const myModal = document.getElementById("my_modal_2");
+    const countdownElement = document.getElementById("countdown-timer");
+
+    myModal.showModal();
+
+    let countdownValue = 3;
+
+    
+    const countdownInterval = setInterval(() => {
+        countdownElement.innerText = countdownValue;
+
+        if (countdownValue === 0) {
+            clearInterval(countdownInterval);  
+            myModal.close();  
+        }
+
+        countdownValue--;
+    }, 1000); 
 };

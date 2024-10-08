@@ -84,7 +84,7 @@
                     <!-- for flex -->
                     <div class="flex gap-2">
                         <!-- serch -->
-                        <div class="bg-white border border-2 h-10 w-10 rounded-[20px] flex items-center justify-center ">
+                        <div class="bg-white border  h-10 w-10 rounded-[20px] flex items-center justify-center ">
 
                             <i class="fa-regular fa-user"></i>
                         </div>
@@ -156,8 +156,18 @@
         </section>
 
 
+        <!-- spinner -->
 
 
+        <Section>
+          <div id="spinner" class="hidden text-center">
+            <span class="loading loading-bars loading-xs"></span>
+<span class="loading loading-bars loading-sm"></span>
+<span class="loading loading-bars loading-md"></span>
+<span class="loading loading-bars loading-lg"></span>
+          </div>
+
+        </Section>
         
 
         <section class="flex justify-between items-center my-1">
@@ -196,6 +206,20 @@
 
             <dialog id="my_modal_1" class="modal">
                 <!-- Content will be injected here by JavaScript -->
+            </dialog>
+
+            <!-- modal 2 -->
+
+            <dialog id="my_modal_2">
+              <div id="myModal" class=" w-[300px] h-[300px] p-4 rounded-3xl">
+              <p class="text-center text-[24px]"><i class="fa-regular fa-handshake text-orange-500"></i></p>
+                <h3 class="text-lg font-bold text-center">Congrate</h3>
+                <p class="text-center">Adoption is Start for yoy pet</p>
+                <p class="text-center text-blue-800 text-[64px]" id="countdown-timer">3</p>
+              </div>
+              <form method="dialog" class="modal-backdrop">
+                <button>close</button>
+              </form>
             </dialog>
             
 
