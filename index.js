@@ -89,7 +89,9 @@ const displayfourcatagory = (pets) => {
     
     if (pets.length === 0) {
         const messageContainer = document.createElement('div');
-        messageContainer.classList = "flex flex-col items-center justify-center h-full";
+        messageContainer.classList = "flex flex-col items-center justify-center h-full col-span-3";
+        // Assuming messageContainer is a div or similar element
+
         messageContainer.innerHTML = `
             <img src="images/error.webp" alt="No Birds" class="mt-4 h-[250px] w-auto">
             <p class="text-[20px] font-bold">No Information Available</p>
