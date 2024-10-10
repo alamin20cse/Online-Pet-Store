@@ -107,7 +107,7 @@ allcatagory();
 
 const displayallcatagory = (data) => {
     const videoContainar = document.getElementById('three-card');
-    videoContainar.innerHTML = ''; // Clear existing content
+    videoContainar.innerHTML = ''; 
 
     data.forEach(element => {
         const cardContainar = document.createElement('div');
@@ -184,13 +184,6 @@ const displaymodal = (petData) => {
     modal.showModal();
 };
 
-
-
-
-
-
-
-
 const adpofunction = () => {
     const myModal = document.getElementById("my_modal_2");
     const countdownElement = document.getElementById("countdown-timer");
@@ -199,7 +192,6 @@ const adpofunction = () => {
 
     let countdownValue = 3;
 
-    
     const countdownInterval = setInterval(() => {
         countdownElement.innerText = countdownValue;
 
@@ -211,3 +203,27 @@ const adpofunction = () => {
         countdownValue--;
     }, 1000); 
 };
+
+const sortbutton = () => {
+    const SpinnerId = document.getElementById('spinner');
+    const videoContainar = document.getElementById('three-card');
+
+    // Show spinner and clear content
+    SpinnerId.classList.remove('hidden');
+    videoContainar.innerHTML = '';
+
+    setTimeout(() => {
+        SpinnerId.classList.add('hidden');
+        
+        fetch('https://openapi.programming-hero.com/api/peddy/pets')
+            .then((res) => res.json())
+            .then(data => {
+                const sortedPets = data.pets.sort((a, b) => b.price - a.price);  // Sort by price in descending order
+                displayallcatagory(sortedPets);
+            }) 
+            .catch(error => console.log(error));
+    }, 2000);
+};
+
+
+document.getElementById('sort-button').onclick = sortbutton;  
