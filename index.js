@@ -102,9 +102,9 @@ its layout. The point of using Lorem Ipsum is that it has a.</p>`;
     pets.forEach(element => {
         const cardContainar = document.createElement('div');
         cardContainar.innerHTML = `
-            <div class="border border-red-300 rounded-2xl h-[500px]">
+            <div class="border border-red-300 rounded-2xl lg:h-[500px] pb-4 mb-5 ">
                 <figure class="p-2">
-                    <img class="w-full h-auto object-cover rounded-2xl" src="${element.image}" />
+                    <img class="w-full lg:h-[200px] h-auto object-cover rounded-2xl" src="${element.image}" />
                 </figure>
                 <div class="card-body ">
                     <h2 class="text-[20px] font-bold">${element.pet_name ? element.pet_name : "Not available"}</h2>
