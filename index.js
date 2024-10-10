@@ -1,11 +1,11 @@
-let activeCategory = null; // Variable to store the active category
+let activeCategory = null; 
 
-// Fetch and display all categories when the page loads
+
 const allcatagory = () => {
     const SpinnerId = document.getElementById('spinner');
     const videoContainar = document.getElementById('three-card');
 
-    // Show spinner and clear content
+    
     SpinnerId.classList.remove('hidden');
     videoContainar.innerHTML = '';
 
@@ -15,13 +15,13 @@ const allcatagory = () => {
         fetch('https://openapi.programming-hero.com/api/peddy/pets')
             .then((res) => res.json())
             .then(data => {
-                displayfourcatagory(data.pets); // Display all pets across categories by default
+                displayfourcatagory(data.pets); 
                 activeCategory = 'all'; // Set active category to 'all' for default behavior
             })
             .catch(error => console.log(error));
     }, 2000);
 };
-allcatagory(); // Call to display all categories on load
+allcatagory(); 
 
 const allpet = () => {
     fetch('https://openapi.programming-hero.com/api/peddy/categories')
@@ -30,6 +30,7 @@ const allpet = () => {
         .catch(error => console.log(error));
 };
 allpet();
+let activeButton = null; // To track the currently active button
 
 const displayallpet = (data) => {
     const buttonContainar = document.getElementById('button-section');
@@ -44,15 +45,25 @@ const displayallpet = (data) => {
             ${element.category}
         `;
 
-        // Update activeCategory on button click
+        // Button click event
         button.onclick = () => {
             activeCategory = element.category; // Set the active category
             fourCatagory(activeCategory); // Fetch and display pets for this category
+
+            // Clear the background of the previously active button
+            if (activeButton) {
+                activeButton.classList.remove('bg-red-300');
+            }
+
+            // Set the current button as active and apply the red background
+            button.classList.add('bg-red-300');
+            activeButton = button; // Update the active button reference
         };
        
         buttonContainar.append(button);
     });
 };
+
 
 const fourCatagory = (category) => {
     const SpinnerId = document.getElementById('spinner');
@@ -91,11 +102,11 @@ its layout. The point of using Lorem Ipsum is that it has a.</p>`;
     pets.forEach(element => {
         const cardContainar = document.createElement('div');
         cardContainar.innerHTML = `
-            <div class="border border-red-300 rounded-2xl">
+            <div class="border border-red-300 rounded-2xl h-[500px]">
                 <figure class="p-2">
                     <img class="w-full h-auto object-cover rounded-2xl" src="${element.image}" />
                 </figure>
-                <div class="card-body">
+                <div class="card-body ">
                     <h2 class="text-[20px] font-bold">${element.pet_name ? element.pet_name : "Not available"}</h2>
                     <p><i class="fa-solid fa-table-cells-large"></i> Breed: ${element.breed ? element.breed : "Not available"}</p>
                     <p><i class="fa-solid fa-cake-candles"></i> Birth: ${element.date_of_birth ? element.date_of_birth : "Not available"}</p>
