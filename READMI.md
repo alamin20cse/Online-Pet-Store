@@ -1,5 +1,5 @@
 # Online Pet Store
-
+![photo](projectphoto/photo1.jpg)
 ## Description
 The **Online Pet Store** is a user-friendly web application that connects pet lovers with a variety of pets available for adoption. Users can explore different categories of pets, view detailed information, and easily adopt their desired companions. The platform features a dynamic layout with an intuitive sorting system, allowing users to filter pets by categories and prices. With engaging visuals, real-time data fetching, and a responsive design, the Online Pet Store aims to create a seamless and enjoyable experience for pet adoption.
 
