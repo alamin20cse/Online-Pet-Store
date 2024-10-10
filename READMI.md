@@ -24,7 +24,7 @@ The **Online Pet Store** is a user-friendly web application that connects pet lo
 - **Promises and Async/Await**: For handling asynchronous operations when fetching data from APIs.
 
 ## live link:
-1. Cick to see live :
+1. Click to see live :
    ```bash
 https://assignent-g.surge.sh/
   
