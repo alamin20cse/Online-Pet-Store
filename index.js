@@ -30,7 +30,7 @@ const allpet = () => {
         .catch(error => console.log(error));
 };
 allpet();
-let activeButton = null; // To track the currently active button
+let activeButton = null; 
 
 const displayallpet = (data) => {
     const buttonContainar = document.getElementById('button-section');
@@ -45,19 +45,19 @@ const displayallpet = (data) => {
             ${element.category}
         `;
 
-        // Button click event
+       
         button.onclick = () => {
-            activeCategory = element.category; // Set the active category
-            fourCatagory(activeCategory); // Fetch and display pets for this category
+            activeCategory = element.category; 
+            fourCatagory(activeCategory); 
 
-            // Clear the background of the previously active button
+           
             if (activeButton) {
                 activeButton.classList.remove('bg-red-300');
             }
 
-            // Set the current button as active and apply the red background
+           
             button.classList.add('bg-red-300');
-            activeButton = button; // Update the active button reference
+            activeButton = button; 
         };
        
         buttonContainar.append(button);
@@ -90,7 +90,7 @@ const displayfourcatagory = (pets) => {
     if (pets.length === 0) {
         const messageContainer = document.createElement('div');
         messageContainer.classList = "flex flex-col items-center justify-center h-full col-span-3";
-        // Assuming messageContainer is a div or similar element
+      
 
         messageContainer.innerHTML = `
             <img src="images/error.webp" alt="No Birds" class="mt-4 h-[250px] w-auto">
@@ -128,7 +128,7 @@ its layout. The point of using Lorem Ipsum is that it has a.</p>`;
     });
 };
 
-// Fix Like button functionality
+
 const likeAdd = (photo) => {
     const photoDiv = document.getElementById('photo-id');
     
@@ -137,10 +137,10 @@ const likeAdd = (photo) => {
     img.classList = "h-[100px] my-2 border-2 rounded-3xl";
 
     photoDiv.appendChild(img);
-    // Optional: Prevent adding duplicate likes (same photo)
+   
 };
 
-// Adopt Button Functionality
+
 const adpofunction = () => {
     const myModal = document.getElementById("my_modal_2");
     const countdownElement = document.getElementById("countdown-timer");
